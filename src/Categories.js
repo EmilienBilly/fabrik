@@ -8,8 +8,8 @@ const Categories = () => {
     }, []);
 
     async function fetchJobs() {
-        const { data: metiers } = await supabase.from("metiers").select("*");
-        setJobs(metiers);
+        const { data } = await supabase.from("metiers").select("*");
+        setJobs(data);
     }
     return (
         <div>
