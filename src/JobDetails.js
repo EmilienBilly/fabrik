@@ -19,7 +19,7 @@ const JobDetails = () => {
 
     return (
         <div>
-            <h2>Job Details - {titre}</h2>
+            <h2>{titre}</h2>
             {/* Conditional templating to avoid TypeError */}
             {job && <div>{job.description}</div>}
         </div>
