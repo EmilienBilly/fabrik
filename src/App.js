@@ -1,13 +1,20 @@
-import "./App.css";
 import Home from "./Home";
 import JobList from "./JobList";
 import JobDetails from "./JobDetails";
 import Categories from "./Categories";
 import { Route, Routes } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
 
+const GlobalStyles = createGlobalStyle`
+
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+`;
 function App() {
     return (
-        <div className="App">
+        <div className="app">
+            <GlobalStyles />
             <div>
                 <Routes>
                     <Route path="/" element={<Home />} />
