@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 // Styled Components
 
-const Grid = styled.ul`
+const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -17,12 +17,12 @@ const Grid = styled.ul`
     text-align: center;
 `;
 
-const ListItem = styled.li`
+const ListItem = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: lightgreen;
+    background-color: ${(props) => props.backgroundColor};
     list-style: none;
 `;
 
@@ -40,7 +40,7 @@ const Categories = () => {
     return (
         <div>
             <Grid>
-                <ListItem>
+                <ListItem backgroundColor="#f6f6">
                     <h1>Alimentation</h1>
                     <JobList jobs={jobs.filter((job) => job.category === "alimentation")} />
                 </ListItem>
