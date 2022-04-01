@@ -17,15 +17,6 @@ const Grid = styled.div`
     text-align: center;
 `;
 
-const ListItem = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: ${(props) => props.backgroundColor};
-    list-style: none;
-`;
-
 const Categories = () => {
     const [jobs, setJobs] = useState([]);
     useEffect(() => {
@@ -40,30 +31,12 @@ const Categories = () => {
     return (
         <div>
             <Grid>
-                <ListItem backgroundColor="#f6f6">
-                    <h1>Alimentation</h1>
-                    <JobList jobs={jobs.filter((job) => job.category === "alimentation")} />
-                </ListItem>
-                <ListItem>
-                    <h1>Hôtellerie-Restauration</h1>
-                    <JobList jobs={jobs.filter((job) => job.category === "restauration")} />
-                </ListItem>
-                <ListItem>
-                    <h1>Bâtiment</h1>
-                    <JobList jobs={jobs.filter((job) => job.category === "batiment")} />
-                </ListItem>
-                <ListItem>
-                    <h1>Commerces & Services</h1>
-                    <JobList jobs={jobs.filter((job) => job.category === "services")} />
-                </ListItem>
-                <ListItem>
-                    <h1>Métaux</h1>
-                    <JobList jobs={jobs.filter((job) => job.category === "metaux")} />
-                </ListItem>
-                <ListItem>
-                    <h1>Mécanique</h1>
-                    <JobList jobs={jobs.filter((job) => job.category === "mecanique")} />
-                </ListItem>
+                <JobList backgroundColor="lightgreen" title="Alimentation" jobs={jobs.filter((job) => job.category === "alimentation")} />
+                <JobList backgroundColor="lightblue" title="Hôtellerie-Restauration" jobs={jobs.filter((job) => job.category === "restauration")} />
+                <JobList backgroundColor="red" title="Bâtiment" jobs={jobs.filter((job) => job.category === "batiment")} />
+                <JobList backgroundColor="purple" title="Commerces & Services" jobs={jobs.filter((job) => job.category === "services")} />
+                <JobList backgroundColor="turquoise" title="Métaux" jobs={jobs.filter((job) => job.category === "metaux")} />
+                <JobList backgroundColor="yellow" title="Mécanique" jobs={jobs.filter((job) => job.category === "mecanique")} />
             </Grid>
         </div>
     );
