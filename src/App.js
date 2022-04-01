@@ -8,21 +8,21 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 
     body {
+        min-height: 100vh;
         font-family: 'Poppins', sans-serif;
+        background-color: #2F242C;
     }
 `;
 function App() {
     return (
         <div className="app">
             <GlobalStyles />
-            <div>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/categories" element={<Categories />} />
-                    <Route path="/categories/metiers" element={<JobList />} />
-                    <Route path="/categories/metiers/:titre" element={<JobDetails />} />
-                </Routes>
-            </div>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/categories" element={<Categories />} />
+                <Route path="/categories/metiers" element={<JobList />} />
+                <Route path="/categories/metiers/:titre" element={<JobDetails />} />
+            </Routes>
         </div>
     );
 }

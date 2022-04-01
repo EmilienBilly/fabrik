@@ -9,10 +9,8 @@ const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    justify-content: center;
-    align-content: center;
+    justify-items: center;
+    align-items: center;
     padding: 0;
     text-align: center;
 `;
@@ -29,16 +27,14 @@ const Categories = () => {
     }
 
     return (
-        <div>
-            <Grid>
-                <JobList backgroundColor="lightgreen" title="Alimentation" jobs={jobs.filter((job) => job.category === "alimentation")} />
-                <JobList backgroundColor="lightblue" title="Hôtellerie-Restauration" jobs={jobs.filter((job) => job.category === "restauration")} />
-                <JobList backgroundColor="red" title="Bâtiment" jobs={jobs.filter((job) => job.category === "batiment")} />
-                <JobList backgroundColor="purple" title="Commerces & Services" jobs={jobs.filter((job) => job.category === "services")} />
-                <JobList backgroundColor="turquoise" title="Métaux" jobs={jobs.filter((job) => job.category === "metaux")} />
-                <JobList backgroundColor="yellow" title="Mécanique" jobs={jobs.filter((job) => job.category === "mecanique")} />
-            </Grid>
-        </div>
+        <Grid>
+            <JobList backgroundColor="#4DAA57" title="Alimentation" jobs={jobs.filter((job) => job.category === "alimentation")} />
+            <JobList backgroundColor="#37718E" title="Hôtellerie-Restauration" jobs={jobs.filter((job) => job.category === "restauration")} />
+            <JobList backgroundColor="#C33C54" title="Bâtiment" jobs={jobs.filter((job) => job.category === "batiment")} />
+            <JobList backgroundColor="#853263" title="Commerces & Services" jobs={jobs.filter((job) => job.category === "services")} />
+            <JobList backgroundColor="#AEF3E7" title="Métaux" jobs={jobs.filter((job) => job.category === "metaux")} />
+            <JobList backgroundColor="#F7B32B" title="Mécanique" jobs={jobs.filter((job) => job.category === "mecanique")} />
+        </Grid>
     );
 };
 
