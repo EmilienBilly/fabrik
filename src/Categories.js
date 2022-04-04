@@ -9,6 +9,7 @@ const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    grid-gap: 20px;
     justify-items: center;
     align-items: center;
     padding: 0;
@@ -17,6 +18,7 @@ const Grid = styled.div`
 
 const Categories = () => {
     const [jobs, setJobs] = useState([]);
+
     useEffect(() => {
         fetchJobs();
     }, []);

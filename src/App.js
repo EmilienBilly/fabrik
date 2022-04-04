@@ -8,11 +8,12 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 
     body {
-        min-height: 100vh;
+        max-height: 100vh;
         font-family: 'Poppins', sans-serif;
         background-color: #2F242C;
     }
 `;
+
 function App() {
     return (
         <div className="app">
