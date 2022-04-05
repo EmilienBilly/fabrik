@@ -9,14 +9,19 @@ const StyledJobList = styled(motion.div)`
     width: 90%;
     min-height: 45vh;
     display: flex;
+    color: white;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: ${(props) => props.backgroundColor};
+    background-color: #1d1b26;
     border-radius: 5%;
 
     h1 {
         z-index: 2;
+        background: ${(props) => props.$linearGradient};
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 `;
 
@@ -26,8 +31,12 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledJobTitle = styled(motion.h3)`
-    font-size: 1rem;
-    margin: 0.5rem;
+    span {
+        background-image: ${(props) => props.$linearGradient};
+        background-size: 100% 3px;
+        background-repeat: no-repeat;
+        background-position: left bottom;
+    }
 `;
 
 const JobContainer = {
@@ -54,12 +63,12 @@ const JobItems = {
 const JobList = (props) => {
     const jobs = props.jobs;
     const title = props.title;
-    const backgroundColor = props.backgroundColor;
+    const linearGradient = props.linearGradient;
     const [isOpen, setIsOpen] = useState(false);
     console.log(isOpen);
 
     return (
-        <StyledJobList onClick={() => setIsOpen(!isOpen)} backgroundColor={backgroundColor}>
+        <StyledJobList onClick={() => setIsOpen(!isOpen)} $linearGradient={linearGradient}>
             <LayoutGroup>
                 <motion.h1 layout>{title}</motion.h1>
                 <AnimatePresence>
@@ -68,7 +77,9 @@ const JobList = (props) => {
                             {jobs.map((job) => (
                                 <motion.div variants={JobItems} key={job.id}>
                                     <StyledLink to={`/categories/metiers/${job.title}`}>
-                                        <StyledJobTitle>{job.title}</StyledJobTitle>
+                                        <StyledJobTitle $linearGradient={linearGradient}>
+                                            <span>{job.title}</span>
+                                        </StyledJobTitle>
                                     </StyledLink>
                                 </motion.div>
                             ))}

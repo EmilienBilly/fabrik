@@ -8,9 +8,9 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 
     body {
-        max-height: 100vh;
+        height: 100vh;
         font-family: 'Poppins', sans-serif;
-        background-color: #2F242C;
+        background-image: white;
     }
 `;
 
