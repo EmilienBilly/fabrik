@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
 
 function App() {
     return (
-        <div className="app">
+        <>
             <GlobalStyles />
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -24,7 +24,7 @@ function App() {
                 <Route path="/categories/metiers" element={<JobList />} />
                 <Route path="/categories/metiers/:titre" element={<JobDetails />} />
             </Routes>
-        </div>
+        </>
     );
 }
 
