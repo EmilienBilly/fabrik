@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "./Client";
 import styled from "styled-components";
+import IMAGES from "./images/Images";
 
 const colors = {
-    alimentation: "linear-gradient(90deg, #4DAA57 0%, #8af27a 100%);",
+    alimentation: "linear-gradient(109.6deg, rgba(95, 115, 82, 1), rgba(76, 106, 58, 1));",
     restauration: "linear-gradient( 109.6deg,  rgba(45,116,213,1) 11.2%, rgba(121,137,212,1) 91.2% );",
     batiment: "linear-gradient( 69.7deg,  rgba(216,81,82,1) 40%, rgba(154,27,69,1) 100.1% );",
     services: "radial-gradient( circle farthest-corner at 10% 20%,  rgba(174,24,255,1) 0%, rgba(246,134,255,1) 90% );",
@@ -31,8 +32,18 @@ const handleColor = (categorie) => {
     }
 };
 
+const StyledWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(109.6deg, rgba(95, 115, 82, 1), rgba(76, 106, 58, 1));
+`;
+
 const StyledJobDetails = styled.div`
     display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const StyleJobTitle = styled.h2`
@@ -40,12 +51,37 @@ const StyleJobTitle = styled.h2`
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    align-self: flex-start;
+`;
+
+const StyledImg = styled.div`
+    padding: 30px;
+    img {
+        height: 500px;
+        width: 425px;
+        object-fit: cover;
+        object-position: right;
+        border-radius: 10%;
+    }
+`;
+
+const StyledDescription = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        width: 80%;
+    }
 `;
 
 const JobDetails = () => {
     const { titre } = useParams();
     const [jobs, setJobs] = useState([]);
     const job = jobs.find((job) => job.title === titre);
+
+    console.log(IMAGES);
 
     useEffect(() => {
         fetchJobs();
@@ -60,13 +96,20 @@ const JobDetails = () => {
         <div>
             {/* Conditional templating to avoid TypeError */}
             {job && (
-                <StyledJobDetails>
-                    <div>
-                        <StyleJobTitle categorie={job.category}>{titre}</StyleJobTitle>
-                        <p>{job.description}</p>
-                    </div>
-                    <div></div>
-                </StyledJobDetails>
+                <StyledWrapper>
+                    <StyledJobDetails>
+                        <StyledImg>
+                            <img src={IMAGES.imgBoulanger} alt="" />
+                        </StyledImg>
+                        <StyledDescription>
+                            <div>
+                                <StyleJobTitle categorie={job.category}>{titre}</StyleJobTitle>
+                                <p>{job.description}</p>
+                            </div>
+                        </StyledDescription>
+                        <div></div>
+                    </StyledJobDetails>
+                </StyledWrapper>
             )}
         </div>
     );
