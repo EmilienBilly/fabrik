@@ -65,7 +65,6 @@ const JobList = (props) => {
     const title = props.title;
     const linearGradient = props.linearGradient;
     const [isOpen, setIsOpen] = useState(false);
-    console.log(jobs);
 
     return (
         <StyledJobList onClick={() => setIsOpen(!isOpen)} $linearGradient={linearGradient}>

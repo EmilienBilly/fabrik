@@ -5,10 +5,14 @@ import styled from "styled-components";
 
 // Styled Components
 
+const StyledCategories = styled.div`
+    display: grid;
+    place-content: center;
+`
+
 const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     grid-gap: 20px;
     justify-items: center;
     align-items: center;
@@ -38,14 +42,19 @@ const Categories = () => {
     }
 
     return (
-        <Grid>
-            <JobList linearGradient={colors.alimentation} title="Alimentation" jobs={jobs.filter((job) => job.category === "alimentation")} />
-            <JobList linearGradient={colors.hotellerie} title="Hôtellerie-Restauration" jobs={jobs.filter((job) => job.category === "restauration")} />
-            <JobList linearGradient={colors.batiment} title="Bâtiment" jobs={jobs.filter((job) => job.category === "batiment")} />
-            <JobList linearGradient={colors.commerce} title="Commerces & Services" jobs={jobs.filter((job) => job.category === "services")} />
-            <JobList linearGradient={colors.metaux} title="Métaux" jobs={jobs.filter((job) => job.category === "metaux")} />
-            <JobList linearGradient={colors.mecanique} title="Mécanique" jobs={jobs.filter((job) => job.category === "mecanique")} />
-        </Grid>
+        <div>
+            <Grid>
+                <JobList linearGradient={colors.alimentation} title="Alimentation" jobs={jobs.filter((job) => job.category === "alimentation")} />
+                <JobList linearGradient={colors.hotellerie} title="Hôtellerie-Restauration" jobs={jobs.filter((job) => job.category === "restauration")} />
+                <JobList linearGradient={colors.batiment} title="Bâtiment" jobs={jobs.filter((job) => job.category === "batiment")} />
+            </Grid>
+            <StyledCategories>FABRIK DES METIERS</StyledCategories>
+            <Grid>
+                <JobList linearGradient={colors.commerce} title="Commerces & Services" jobs={jobs.filter((job) => job.category === "services")} />
+                <JobList linearGradient={colors.metaux} title="Métaux" jobs={jobs.filter((job) => job.category === "metaux")} />
+                <JobList linearGradient={colors.mecanique} title="Mécanique" jobs={jobs.filter((job) => job.category === "mecanique")} />
+            </Grid>
+        </div>
     );
 };
 

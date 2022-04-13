@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "./Client";
 import styled from "styled-components";
-import IMAGES from "./images/Images";
 
 const colors = {
     alimentation: "linear-gradient(109.6deg, rgba(95, 115, 82, 1), rgba(76, 106, 58, 1));",
@@ -47,11 +46,11 @@ const StyledJobDetails = styled.div`
 `;
 
 const StyleJobTitle = styled.h2`
-    background-image: ${({ categorie }) => handleColor(categorie)};
+    /* background-image: ${({ categorie }) => handleColor(categorie)};
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    align-self: flex-start;
+    align-self: flex-start; */
 `;
 
 const StyledImg = styled.div`
@@ -76,12 +75,17 @@ const StyledDescription = styled.div`
     }
 `;
 
+const StyledButtons = styled.div`
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+`;
+
 const JobDetails = () => {
     const { titre } = useParams();
     const [jobs, setJobs] = useState([]);
     const job = jobs.find((job) => job.title === titre);
-
-    console.log(IMAGES);
 
     useEffect(() => {
         fetchJobs();
@@ -99,12 +103,19 @@ const JobDetails = () => {
                 <StyledWrapper>
                     <StyledJobDetails>
                         <StyledImg>
-                            <img src={IMAGES.imgBoulanger} alt="" />
+                            <img src={`/images/${titre}.jpg`} alt="" />
                         </StyledImg>
                         <StyledDescription>
                             <div>
                                 <StyleJobTitle categorie={job.category}>{titre}</StyleJobTitle>
                                 <p>{job.description}</p>
+                                    <StyledButtons>
+                                        {job.diplomes.map((diplome, index) => (
+                                            <a key={index} href={diplome.lien}>
+                                                <button>{diplome.titre}</button>
+                                            </a>
+                                        ))}
+                                    </StyledButtons>
                             </div>
                         </StyledDescription>
                         <div></div>
