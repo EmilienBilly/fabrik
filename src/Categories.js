@@ -8,7 +8,8 @@ import styled from "styled-components";
 const StyledCategories = styled.div`
     display: grid;
     place-content: center;
-`
+    color: white;
+`;
 
 const Grid = styled.div`
     display: grid;
@@ -43,12 +44,12 @@ const Categories = () => {
 
     return (
         <div>
+            <StyledCategories>FABRIK DES METIERS</StyledCategories>
             <Grid>
                 <JobList linearGradient={colors.alimentation} title="Alimentation" jobs={jobs.filter((job) => job.category === "alimentation")} />
                 <JobList linearGradient={colors.hotellerie} title="Hôtellerie-Restauration" jobs={jobs.filter((job) => job.category === "restauration")} />
                 <JobList linearGradient={colors.batiment} title="Bâtiment" jobs={jobs.filter((job) => job.category === "batiment")} />
             </Grid>
-            <StyledCategories>FABRIK DES METIERS</StyledCategories>
             <Grid>
                 <JobList linearGradient={colors.commerce} title="Commerces & Services" jobs={jobs.filter((job) => job.category === "services")} />
                 <JobList linearGradient={colors.metaux} title="Métaux" jobs={jobs.filter((job) => job.category === "metaux")} />

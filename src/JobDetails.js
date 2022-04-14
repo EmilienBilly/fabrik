@@ -36,7 +36,6 @@ const StyledWrapper = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: linear-gradient(109.6deg, rgba(95, 115, 82, 1), rgba(76, 106, 58, 1));
 `;
 
 const StyledJobDetails = styled.div`

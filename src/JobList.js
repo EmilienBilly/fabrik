@@ -13,7 +13,7 @@ const StyledJobList = styled(motion.div)`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #1d1b26;
+    background-color: #4d5356;
     border-radius: 5%;
 
     h1 {
@@ -65,6 +65,7 @@ const JobList = (props) => {
     const title = props.title;
     const linearGradient = props.linearGradient;
     const [isOpen, setIsOpen] = useState(false);
+    console.log(jobs);
 
     return (
         <StyledJobList onClick={() => setIsOpen(!isOpen)} $linearGradient={linearGradient}>
