@@ -10,7 +10,6 @@ const GlobalStyles = createGlobalStyle`
     body {
         height: 100vh;
         font-family: 'Poppins', sans-serif;
-        background-color: #262322;
     }
 `;
 

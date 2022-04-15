@@ -32,10 +32,13 @@ const handleColor = (categorie) => {
 };
 
 const StyledWrapper = styled.div`
+    background-image: linear-gradient(315deg, rgba(58, 72, 49, 1), rgba(104, 124, 91, 1));
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    color: white;
+    text-align: justify;
 `;
 
 const StyledJobDetails = styled.div`
@@ -108,13 +111,13 @@ const JobDetails = () => {
                             <div>
                                 <StyleJobTitle categorie={job.category}>{titre}</StyleJobTitle>
                                 <p>{job.description}</p>
-                                    <StyledButtons>
-                                        {job.diplomes.map((diplome, index) => (
-                                            <a key={index} href={diplome.lien}>
-                                                <button>{diplome.titre}</button>
-                                            </a>
-                                        ))}
-                                    </StyledButtons>
+                                <StyledButtons>
+                                    {job.diplomes.map((diplome, index) => (
+                                        <a key={index} href={diplome.lien}>
+                                            <button>{diplome.titre}</button>
+                                        </a>
+                                    ))}
+                                </StyledButtons>
                             </div>
                         </StyledDescription>
                         <div></div>
