@@ -32,12 +32,10 @@ const handleColor = (categorie) => {
 };
 
 const StyledWrapper = styled.div`
-    background-image: linear-gradient(315deg, rgba(58, 72, 49, 1), rgba(104, 124, 91, 1));
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    color: white;
+    max-height: 100vh;
     text-align: justify;
 `;
 
@@ -53,6 +51,8 @@ const StyleJobTitle = styled.h2`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     align-self: flex-start; */
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
 `;
 
 const StyledImg = styled.div`
@@ -62,7 +62,8 @@ const StyledImg = styled.div`
         width: 425px;
         object-fit: cover;
         object-position: right;
-        border-radius: 10%;
+        border: solid 6px;
+        border-image: linear-gradient(90deg, purple, orange) 1;
     }
 `;
 
@@ -71,6 +72,11 @@ const StyledDescription = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    p {
+        border-bottom: 2px solid black;
+        padding-bottom: 15px;
+    }
 
     div {
         width: 80%;
