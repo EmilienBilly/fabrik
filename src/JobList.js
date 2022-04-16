@@ -1,29 +1,23 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
-import { useState } from "react";
-
-
+import { useState, useEffect, useRef } from "react";
 
 // Styled Components
 const StyledJobList = styled(motion.div)`
-    width: 90%;
-    min-height: 45vh;
+    width: 100%;
+    min-height: 15vh;
     display: flex;
     color: white;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: ${(props) => props.$colorBackground};
-    border-radius: 5%;
 
-    /* h1 {
-        z-index: 2;
-        background: ${(props) => props.$linearGradient};
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    } */
+    h1 {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
 `;
 
 const StyledLink = styled(Link)`
@@ -31,12 +25,14 @@ const StyledLink = styled(Link)`
     color: inherit;
 `;
 
+const StyledJobTitleWrapper = styled(motion.div)`
+    min-height: 30vh;
+`;
 const StyledJobTitle = styled(motion.h3)`
     span {
-        background-image: ${(props) => props.$linearGradient};
+        font-size: 0.9rem;
+        border-bottom: 2px solid white;
         background-size: 100% 3px;
-        background-repeat: no-repeat;
-        background-position: left bottom;
     }
 `;
 
@@ -67,29 +63,52 @@ const JobList = (props) => {
     const linearGradient = props.linearGradient;
     const colorBackground = props.colorBackground;
     const [isOpen, setIsOpen] = useState(false);
-    console.log(jobs);
+    const ref = useRef();
+
+    useEffect(() => {
+        const checkIfClickedOutside = (e) => {
+            // Vérifie si le composant est ouvert et si la cible du clic n'est pas ce composant,
+            // alors le composant se ferme
+            if (isOpen && ref.current && !ref.current.contains(e.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", checkIfClickedOutside);
+
+        return () => {
+            // Cleanup l'event listener
+            document.removeEventListener("mousedown", checkIfClickedOutside);
+        };
+    }, [isOpen]);
 
     return (
-        <StyledJobList onClick={() => setIsOpen(!isOpen)} $colorBackground={colorBackground}>
-            <LayoutGroup>
+        <LayoutGroup>
+            <StyledJobList
+                transition={{ layout: { duration: 1 } }}
+                style={{ borderRadius: "30px" }}
+                layout
+                onClick={() => setIsOpen(!isOpen)}
+                ref={ref}
+                $colorBackground={colorBackground}>
                 <motion.h1 layout>{title}</motion.h1>
                 <AnimatePresence>
                     {isOpen && (
-                        <motion.div layout animate={isOpen ? "visible" : "hidden"} variants={JobContainer} initial="hidden" exit="exit">
+                        <StyledJobTitleWrapper layout animate={isOpen ? "visible" : "hidden"} variants={JobContainer} initial="hidden" exit="exit">
                             {jobs.map((job) => (
-                                <motion.div variants={JobItems} key={job.id}>
-                                    <StyledLink to={`/categories/metiers/${job.title}`}>
+                                <motion.div layout variants={JobItems} key={job.id}>
+                                    <StyledLink to={`/metiers/${job.title}`}>
                                         <StyledJobTitle $linearGradient={linearGradient}>
                                             <span>{job.title}</span>
                                         </StyledJobTitle>
                                     </StyledLink>
                                 </motion.div>
                             ))}
-                        </motion.div>
+                        </StyledJobTitleWrapper>
                     )}
                 </AnimatePresence>
-            </LayoutGroup>
-        </StyledJobList>
+            </StyledJobList>
+        </LayoutGroup>
     );
 };
 

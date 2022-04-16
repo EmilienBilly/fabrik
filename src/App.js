@@ -1,7 +1,5 @@
-import Home from "./Home";
-import JobList from "./JobList";
 import JobDetails from "./JobDetails";
-import Categories from "./Categories";
+import Home from "./Home";
 import { Route, Routes } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 
@@ -10,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
     body {
         height: 100vh;
         font-family: 'Poppins', sans-serif;
+        background: #E7E5E5;
     }
 `;
 
@@ -19,9 +18,7 @@ function App() {
             <GlobalStyles />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/categories" element={<Categories />} />
-                <Route path="/categories/metiers" element={<JobList />} />
-                <Route path="/categories/metiers/:titre" element={<JobDetails />} />
+                <Route path="/metiers/:titre" element={<JobDetails />} />
             </Routes>
         </>
     );

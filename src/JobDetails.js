@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "./Client";
 import styled from "styled-components";
+import Navbar from "./Navbar";
 
 const colors = {
     alimentation: "linear-gradient(109.6deg, rgba(95, 115, 82, 1), rgba(76, 106, 58, 1));",
@@ -35,7 +36,7 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 100vh;
+    height: 100%;
     text-align: justify;
 `;
 
@@ -51,7 +52,7 @@ const StyleJobTitle = styled.h2`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     align-self: flex-start; */
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #85b36b;
     padding-bottom: 15px;
 `;
 
@@ -62,8 +63,9 @@ const StyledImg = styled.div`
         width: 425px;
         object-fit: cover;
         object-position: right;
-        border: solid 6px;
-        border-image: linear-gradient(90deg, purple, orange) 1;
+        border: solid 6px #85b36b;
+        border-radius: 20px;
+        /* border-image: linear-gradient(90deg, purple, orange) 1; */
     }
 `;
 
@@ -106,6 +108,7 @@ const JobDetails = () => {
 
     return (
         <div>
+            <Navbar />
             {/* Conditional templating to avoid TypeError */}
             {job && (
                 <StyledWrapper>
