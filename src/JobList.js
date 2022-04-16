@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useState } from "react";
 
-// Styled Components
 
+
+// Styled Components
 const StyledJobList = styled(motion.div)`
     width: 90%;
     min-height: 45vh;
@@ -13,16 +14,16 @@ const StyledJobList = styled(motion.div)`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #4d5356;
+    background: ${(props) => props.$colorBackground};
     border-radius: 5%;
 
-    h1 {
+    /* h1 {
         z-index: 2;
         background: ${(props) => props.$linearGradient};
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-    }
+    } */
 `;
 
 const StyledLink = styled(Link)`
@@ -64,11 +65,12 @@ const JobList = (props) => {
     const jobs = props.jobs;
     const title = props.title;
     const linearGradient = props.linearGradient;
+    const colorBackground = props.colorBackground;
     const [isOpen, setIsOpen] = useState(false);
     console.log(jobs);
 
     return (
-        <StyledJobList onClick={() => setIsOpen(!isOpen)} $linearGradient={linearGradient}>
+        <StyledJobList onClick={() => setIsOpen(!isOpen)} $colorBackground={colorBackground}>
             <LayoutGroup>
                 <motion.h1 layout>{title}</motion.h1>
                 <AnimatePresence>

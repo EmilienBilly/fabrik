@@ -23,12 +23,21 @@ const Grid = styled.div`
 `;
 
 const colors = {
-    alimentation: "linear-gradient(90deg, #4DAA57 0%, #8af27a 100%);",
+    alimentation: "linear-gradient(109.6deg, rgba(95, 115, 82, 1), rgba(76, 106, 58, 1));",
     hotellerie: "linear-gradient( 109.6deg,  rgba(45,116,213,1) 11.2%, rgba(121,137,212,1) 91.2% );",
     batiment: "linear-gradient( 69.7deg,  rgba(216,81,82,1) 40%, rgba(154,27,69,1) 100.1% );",
     commerce: "radial-gradient( circle farthest-corner at 10% 20%,  rgba(174,24,255,1) 0%, rgba(246,134,255,1) 90% );",
     metaux: "radial-gradient( circle farthest-corner at 10% 20%,  rgba(97,186,255,1) 0%, rgba(166,239,253,1) 90.1% );",
     mecanique: "radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,209,67,1) 0%, rgba(255,145,83,1) 90% );",
+};
+
+const backColor = {
+    alimentation: "#85B36B;",
+    hotellerie: "#4C83FA;",
+    batiment: "#E76A4B;",
+    commerce: "#827191",
+    metaux: "#245A6A;",
+    mecanique: "#FC7F36;",
 };
 
 const Categories = () => {
@@ -47,12 +56,42 @@ const Categories = () => {
         <div>
             <StyledCategories>FABRIK DES METIERS</StyledCategories>
             <Grid>
-                <JobList linearGradient={colors.alimentation} title="Alimentation" jobs={jobs.filter((job) => job.category === "alimentation")} />
-                <JobList linearGradient={colors.hotellerie} title="Hôtellerie-Restauration" jobs={jobs.filter((job) => job.category === "restauration")} />
-                <JobList linearGradient={colors.batiment} title="Bâtiment" jobs={jobs.filter((job) => job.category === "batiment")} />
-                <JobList linearGradient={colors.commerce} title="Commerces & Services" jobs={jobs.filter((job) => job.category === "services")} />
-                <JobList linearGradient={colors.metaux} title="Métaux" jobs={jobs.filter((job) => job.category === "metaux")} />
-                <JobList linearGradient={colors.mecanique} title="Mécanique" jobs={jobs.filter((job) => job.category === "mecanique")} />
+                <JobList
+                    colorBackground={backColor.alimentation}
+                    linearGradient={colors.alimentation}
+                    title="Alimentation"
+                    jobs={jobs.filter((job) => job.category === "alimentation")}
+                />
+                <JobList
+                    colorBackground={backColor.hotellerie}
+                    linearGradient={colors.hotellerie}
+                    title="Hôtellerie-Restauration"
+                    jobs={jobs.filter((job) => job.category === "restauration")}
+                />
+                <JobList
+                    colorBackground={backColor.batiment}
+                    linearGradient={colors.batiment}
+                    title="Bâtiment"
+                    jobs={jobs.filter((job) => job.category === "batiment")}
+                />
+                <JobList
+                    colorBackground={backColor.commerce}
+                    linearGradient={colors.commerce}
+                    title="Commerces & Services"
+                    jobs={jobs.filter((job) => job.category === "services")}
+                />
+                <JobList
+                    colorBackground={backColor.metaux}
+                    linearGradient={colors.metaux}
+                    title="Métaux"
+                    jobs={jobs.filter((job) => job.category === "metaux")}
+                />
+                <JobList
+                    colorBackground={backColor.mecanique}
+                    linearGradient={colors.mecanique}
+                    title="Mécanique"
+                    jobs={jobs.filter((job) => job.category === "mecanique")}
+                />
             </Grid>
         </div>
     );
