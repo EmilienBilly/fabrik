@@ -3,15 +3,15 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const StyledNav = styled(motion.nav)`
+    width: 90vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
+    height: 10vh;
+    margin: 1em auto 0;
 
     img {
-        height: 80%;
-        width: 5%;
-        padding-left: 40px;
+        height: 100%;
         background-image: url("/images/logo-cma.png");
         object-fit: contain;
     }
@@ -19,7 +19,7 @@ const StyledNav = styled(motion.nav)`
 
 const StyledLink = styled(Link)`
     text-decoration: none;
-    color: inherit;
+    color: white;
     padding-right: 40px;
     font-weight: 900;
 `;

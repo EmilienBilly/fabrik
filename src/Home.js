@@ -41,7 +41,7 @@ const backColor = {
     alimentation: "#85B36B;",
     hotellerie: "#4C83FA;",
     batiment: "#E76A4B;",
-    commerce: "#827191",
+    commerce: "#827191;",
     metaux: "#245A6A;",
     mecanique: "#FC7F36;",
 };

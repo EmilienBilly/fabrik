@@ -6,9 +6,10 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 
     body {
+        min-height: 100vh;
         height: 100vh;
         font-family: 'Poppins', sans-serif;
-        background: #E7E5E5;
+        background: #242424;
     }
 `;
 

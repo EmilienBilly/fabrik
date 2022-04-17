@@ -5,12 +5,12 @@ import styled from "styled-components";
 import Navbar from "./Navbar";
 
 const colors = {
-    alimentation: "linear-gradient(109.6deg, rgba(95, 115, 82, 1), rgba(76, 106, 58, 1));",
-    restauration: "linear-gradient( 109.6deg,  rgba(45,116,213,1) 11.2%, rgba(121,137,212,1) 91.2% );",
-    batiment: "linear-gradient( 69.7deg,  rgba(216,81,82,1) 40%, rgba(154,27,69,1) 100.1% );",
-    services: "radial-gradient( circle farthest-corner at 10% 20%,  rgba(174,24,255,1) 0%, rgba(246,134,255,1) 90% );",
-    metaux: "radial-gradient( circle farthest-corner at 10% 20%,  rgba(97,186,255,1) 0%, rgba(166,239,253,1) 90.1% );",
-    mecanique: "radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,209,67,1) 0%, rgba(255,145,83,1) 90% );",
+    alimentation: "#85B36B;",
+    restauration: "#4C83FA;",
+    batiment: "#E76A4B;",
+    services: "#827191;",
+    metaux: "#245A6A;",
+    mecanique: "#FC7F36;",
 };
 
 const handleColor = (categorie) => {
@@ -33,40 +33,24 @@ const handleColor = (categorie) => {
 };
 
 const StyledWrapper = styled.div`
+    height: 90vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    text-align: justify;
 `;
 
 const StyledJobDetails = styled.div`
-    display: flex;
-    justify-content: center;
+    max-height: 75vh;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
     align-items: center;
-`;
-
-const StyleJobTitle = styled.h2`
-    /* background-image: ${({ categorie }) => handleColor(categorie)};
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    align-self: flex-start; */
-    border-bottom: 2px solid #85b36b;
-    padding-bottom: 15px;
-`;
-
-const StyledImg = styled.div`
-    padding: 30px;
-    img {
-        height: 500px;
-        width: 425px;
-        object-fit: cover;
-        object-position: right;
-        border: solid 6px #85b36b;
-        border-radius: 20px;
-        /* border-image: linear-gradient(90deg, purple, orange) 1; */
-    }
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+    border-color: ${({ categorie }) => handleColor(categorie)};
+    padding: 15px 0 15px 0;
 `;
 
 const StyledDescription = styled.div`
@@ -74,22 +58,70 @@ const StyledDescription = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #fff;
 
     p {
-        border-bottom: 2px solid black;
-        padding-bottom: 15px;
+        line-height: 1.6;
+        font-size: 0.9rem;
+        padding: 15px 0px 15px 0px;
     }
+`;
 
-    div {
-        width: 80%;
+const StyledImg = styled.div`
+    justify-self: end;
+    padding-right: 30px;
+    img {
+        border-radius: 10px;
+        height: 450px;
+        width: 350px;
+        object-fit: cover;
+        object-position: right;
+    }
+`;
+
+const StyleJobTitle = styled.h1`
+    height: 10vh;
+    width: 90%;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 3rem;
+    color: ${({ categorie }) => handleColor(categorie)};
+    margin: 30px 0 0 0;
+`;
+
+const StyledDiplomes = styled.div`
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    color: white;
+
+    h3 {
+        margin: 0;
+        font-size: 1.5rem;
     }
 `;
 
 const StyledButtons = styled.div`
-    min-width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    button {
+        min-height: 40px;
+        max-width: 200px;
+        background-color: ${({ categorie }) => handleColor(categorie)};
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        margin: 1rem;
+        cursor: pointer;
+    }
 `;
 
 const JobDetails = () => {
@@ -112,25 +144,27 @@ const JobDetails = () => {
             {/* Conditional templating to avoid TypeError */}
             {job && (
                 <StyledWrapper>
-                    <StyledJobDetails>
-                        <StyledImg>
+                    <StyleJobTitle categorie={job.category}>{titre}</StyleJobTitle>
+                    <StyledJobDetails categorie={job.category}>
+                        <StyledDescription categorie={job.category}>
+                            <p>{job.description}</p>
+                        </StyledDescription>
+                        <StyledImg categorie={job.category}>
                             <img src={`/images/${titre}.jpg`} alt="" />
                         </StyledImg>
-                        <StyledDescription>
-                            <div>
-                                <StyleJobTitle categorie={job.category}>{titre}</StyleJobTitle>
-                                <p>{job.description}</p>
-                                <StyledButtons>
-                                    {job.diplomes.map((diplome, index) => (
-                                        <a key={index} href={diplome.lien}>
-                                            <button>{diplome.titre}</button>
-                                        </a>
-                                    ))}
-                                </StyledButtons>
-                            </div>
-                        </StyledDescription>
-                        <div></div>
                     </StyledJobDetails>
+                    <StyledDiplomes>
+                        <h3>Découvre les formations</h3>
+                        <StyledButtons categorie={job.category}>
+                            {job.diplomes.map((diplome, index) => (
+                                <a key={index} href={diplome.lien}>
+                                    <button>
+                                        <span>{diplome.titre}</span>
+                                    </button>
+                                </a>
+                            ))}
+                        </StyledButtons>
+                    </StyledDiplomes>
                 </StyledWrapper>
             )}
         </div>
