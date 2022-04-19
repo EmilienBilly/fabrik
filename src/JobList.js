@@ -25,9 +25,7 @@ const StyledLink = styled(Link)`
     color: inherit;
 `;
 
-const StyledJobTitleWrapper = styled(motion.div)`
-    min-height: 30vh;
-`;
+const StyledJobTitleWrapper = styled(motion.div)``;
 const StyledJobTitle = styled(motion.h3)`
     span {
         font-size: 0.9rem;
@@ -97,7 +95,7 @@ const JobList = (props) => {
                         <StyledJobTitleWrapper layout animate={isOpen ? "visible" : "hidden"} variants={JobContainer} initial="hidden" exit="exit">
                             {jobs.map((job) => (
                                 <motion.div layout variants={JobItems} key={job.id}>
-                                    <StyledLink to={`/metiers/${job.title}`}>
+                                    <StyledLink to={`/${job.title}`}>
                                         <StyledJobTitle $linearGradient={linearGradient}>
                                             <span>{job.title}</span>
                                         </StyledJobTitle>

@@ -33,7 +33,7 @@ const handleColor = (categorie) => {
 };
 
 const StyledWrapper = styled.div`
-    height: 90vh;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,7 +41,7 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledJobDetails = styled.div`
-    max-height: 75vh;
+    height: 50vh;
     width: 90%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -50,7 +50,6 @@ const StyledJobDetails = styled.div`
     border-top: 3px solid;
     border-bottom: 3px solid;
     border-color: ${({ categorie }) => handleColor(categorie)};
-    padding: 15px 0 15px 0;
 `;
 
 const StyledDescription = styled.div`
@@ -70,12 +69,12 @@ const StyledDescription = styled.div`
 const StyledImg = styled.div`
     justify-self: end;
     padding-right: 30px;
+
     img {
         border-radius: 10px;
-        height: 450px;
-        width: 350px;
+        height: 380px;
+        width: 330px;
         object-fit: cover;
-        object-position: right;
     }
 `;
 
@@ -84,7 +83,7 @@ const StyleJobTitle = styled.h1`
     width: 90%;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: ${({ categorie }) => handleColor(categorie)};
     margin: 30px 0 0 0;
 `;
@@ -97,6 +96,17 @@ const StyledDiplomes = styled.div`
     align-items: center;
     width: 90%;
     color: white;
+
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            height: 52px;
+            padding-left: 15px;
+        }
+    }
 
     h3 {
         margin: 0;
@@ -154,7 +164,10 @@ const JobDetails = () => {
                         </StyledImg>
                     </StyledJobDetails>
                     <StyledDiplomes>
-                        <h3>Découvre les formations</h3>
+                        <span>
+                            <h3>Découvre les formations</h3>
+                            <img src="/images/logo-diplome.svg" alt="" />
+                        </span>
                         <StyledButtons categorie={job.category}>
                             {job.diplomes.map((diplome, index) => (
                                 <a key={index} href={diplome.lien}>

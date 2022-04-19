@@ -4,30 +4,6 @@ import JobList from "./JobList";
 import Navbar from "./Navbar";
 import styled from "styled-components";
 
-// Styled Components
-const StyledWrapper = styled.div`
-    max-height: 90vh;
-    display: flex;
-    justify-content: center;
-`;
-const StyledCategories = styled.div`
-    display: grid;
-    place-content: center;
-    color: black;
-`;
-
-const Grid = styled.div`
-    height: 100%;
-    width: 95%;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 20px;
-    justify-items: center;
-    align-items: start;
-    padding: 0;
-    text-align: center;
-`;
-
 const colors = {
     alimentation: "linear-gradient(109.6deg, rgba(95, 115, 82, 1), rgba(76, 106, 58, 1));",
     hotellerie: "linear-gradient( 109.6deg,  rgba(45,116,213,1) 11.2%, rgba(121,137,212,1) 91.2% );",
@@ -46,6 +22,60 @@ const backColor = {
     mecanique: "#FC7F36;",
 };
 
+// Styled Components
+const StyledWrapper = styled.div`
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+const StyledCategories = styled.div`
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        margin: 15px 0 0 0;
+        font-size: 3rem;
+        font-weight: 900;
+        color: black;
+        background: rgb(132, 94, 194);
+        background: linear-gradient(
+            61deg,
+            rgba(132, 94, 194, 1) 0%,
+            rgba(214, 93, 177, 1) 18%,
+            rgba(226, 98, 168, 1) 32%,
+            rgba(255, 111, 145, 1) 47%,
+            rgba(255, 150, 113, 1) 65%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    p {
+        width: 50%;
+        font-size: 1.5rem;
+        color: white;
+        text-align: center;
+    }
+`;
+
+const Grid = styled.div`
+    height: 45%;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 15px;
+    justify-items: center;
+    align-items: start;
+    padding-top: 2.5rem;
+    text-align: center;
+`;
+
 const Home = () => {
     const [jobs, setJobs] = useState([]);
 
@@ -61,8 +91,11 @@ const Home = () => {
     return (
         <div>
             <Navbar />
-            <StyledCategories>FABRIK DES METIERS</StyledCategories>
             <StyledWrapper>
+                <StyledCategories>
+                    <h1>FABRIK DES METIERS</h1>
+                    <p>Découvre les métiers de l'Artisanat et leurs formations</p>
+                </StyledCategories>
                 <Grid>
                     <JobList
                         colorBackground={backColor.alimentation}
@@ -73,7 +106,7 @@ const Home = () => {
                     <JobList
                         colorBackground={backColor.hotellerie}
                         linearGradient={colors.hotellerie}
-                        title="Hôtellerie-Restauration"
+                        title="Hôtellerie Restauration"
                         jobs={jobs.filter((job) => job.category === "restauration")}
                     />
                     <JobList
@@ -85,7 +118,7 @@ const Home = () => {
                     <JobList
                         colorBackground={backColor.commerce}
                         linearGradient={colors.commerce}
-                        title="Commerces & Services"
+                        title="Commerces Services"
                         jobs={jobs.filter((job) => job.category === "services")}
                     />
                     <JobList

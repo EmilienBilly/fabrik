@@ -6,8 +6,9 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 
     body {
-        min-height: 100vh;
-        height: 100vh;
+        padding: 0;
+        margin: 0;
+        max-height: 100vh;
         font-family: 'Poppins', sans-serif;
         background: #242424;
     }
@@ -19,7 +20,7 @@ function App() {
             <GlobalStyles />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/metiers/:titre" element={<JobDetails />} />
+                <Route path="/:titre" element={<JobDetails />} />
             </Routes>
         </>
     );
