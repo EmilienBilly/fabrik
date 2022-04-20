@@ -19,8 +19,8 @@ function App() {
         <>
             <GlobalStyles />
             <Routes>
-                <Route path="/fabrik" element={<Home />} />
-                <Route path="/fabrik/:titre" element={<JobDetails />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/:titre" element={<JobDetails />} />
             </Routes>
         </>
     );
