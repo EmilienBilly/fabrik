@@ -41,6 +41,7 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledJobDetails = styled.div`
+    /* height: 80%; */
     width: 90%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
