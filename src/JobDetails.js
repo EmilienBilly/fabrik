@@ -44,12 +44,16 @@ const StyledJobDetails = styled.div`
     /* height: 80%; */
     width: 90%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     justify-items: center;
     align-items: center;
     border-top: 3px solid;
     border-bottom: 3px solid;
     border-color: ${({ categorie }) => handleColor(categorie)};
+
+    @media (min-width: 767px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 `;
 
 const StyledDescription = styled.div`
@@ -58,35 +62,53 @@ const StyledDescription = styled.div`
     justify-content: center;
     align-items: center;
     color: #fff;
-    padding-left: 30px;
+    text-align: center;
 
     p {
-        line-height: 1.6;
-        font-size: 0.9rem;
+        line-height: 1.8;
+        font-size: 0.8rem;
         padding: 15px 0px 15px 0px;
+    }
+
+    @media (min-width: 767px) {
+        font-size: 0.9rem;
+        text-align: left;
     }
 `;
 
 const StyledImg = styled.div`
-    justify-self: end;
-    padding-right: 30px;
+    justify-self: center;
 
     img {
-        border-radius: 10px;
-        height: 380px;
-        width: 330px;
+        border-radius: 1rem;
+        height: 300px;
+        width: 280px;
         object-fit: cover;
+        margin: 15px 0;
+    }
+
+    @media (min-width: 767px) {
+        justify-self: end;
+
+        img {
+            height: 380px;
+            width: 330px;
+        }
     }
 `;
 
 const StyleJobTitle = styled.h1`
-    height: 10vh;
     width: 90%;
     text-transform: uppercase;
     font-weight: 900;
     font-size: 2.5rem;
+    text-align: center;
     color: ${({ categorie }) => handleColor(categorie)};
     margin: 30px 0 0 0;
+
+    @media (min-width: 767px) {
+        text-align: left;
+    }
 `;
 
 const StyledDiplomes = styled.div`
@@ -104,24 +126,40 @@ const StyledDiplomes = styled.div`
         justify-content: space-between;
 
         img {
-            height: 2.5rem;
-            padding-left: 1rem;
+            height: 2rem;
+            padding-left: 0.5rem;
         }
     }
 
     h3 {
         margin: 0;
-        font-size: 1.5rem;
+        font-size: 1rem;
+    }
+
+    @media (min-width: 767px) {
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        img {
+            height: 2.5rem;
+            padding-left: 1rem;
+        }
     }
 `;
 
 const StyledButtons = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
     button {
-        min-height: 40px;
-        max-width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 150px;
         background-color: ${({ categorie }) => handleColor(categorie)};
         border: none;
         border-radius: 5px;
@@ -129,9 +167,15 @@ const StyledButtons = styled.div`
         text-transform: uppercase;
         font-size: 0.9rem;
         font-weight: 600;
-        padding: 0.5rem 1rem;
-        margin: 1rem;
-        cursor: pointer;
+        margin: 0.5rem;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    @media (min-width: 767px) {
+        flex-direction: row;
     }
 `;
 

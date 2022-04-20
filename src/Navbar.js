@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const StyledNav = styled(motion.nav)`
-    width: 90vw;
+    height: 70px;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
     margin: 10px auto 0;
 
     div {

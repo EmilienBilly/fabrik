@@ -3,6 +3,7 @@ import { supabase } from "./Client";
 import JobList from "./JobList";
 import Navbar from "./Navbar";
 import styled from "styled-components";
+import { AnimatePresence, LayoutGroup } from "framer-motion";
 
 const colors = {
     alimentation: "linear-gradient(109.6deg, rgba(95, 115, 82, 1), rgba(76, 106, 58, 1));",
@@ -24,14 +25,18 @@ const backColor = {
 
 // Styled Components
 const StyledWrapper = styled.div`
-    height: 90vh;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 3rem auto;
+
+    @media (min-width: 767px) {
+        width: 100%;
+    }
 `;
 const StyledCategories = styled.div`
-    height: 20vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,9 +44,10 @@ const StyledCategories = styled.div`
 
     h1 {
         margin: 15px 0 0 0;
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: 900;
         color: black;
+        text-align: center;
         background: rgb(132, 94, 194);
         background: linear-gradient(
             61deg,
@@ -58,22 +64,33 @@ const StyledCategories = styled.div`
 
     p {
         width: 50%;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         color: white;
         text-align: center;
+    }
+
+    @media (min-width: 767px) {
+        p {
+            width: 50%;
+            font-size: 1.5rem;
+        }
     }
 `;
 
 const Grid = styled.div`
-    height: 45%;
     width: 90%;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: repeat(6, auto);
     grid-gap: 15px;
     justify-items: center;
     align-items: start;
     padding-top: 3.5rem;
     text-align: center;
+
+    @media (min-width: 767px) {
+        grid-template-columns: repeat(6, 1fr);
+    }
 `;
 
 const Home = () => {
@@ -96,44 +113,54 @@ const Home = () => {
                     <h1>FABRIK DES METIERS</h1>
                     <p>Découvre les métiers de l'Artisanat et leurs formations</p>
                 </StyledCategories>
-                <Grid>
-                    <JobList
-                        colorBackground={backColor.alimentation}
-                        linearGradient={colors.alimentation}
-                        title="Alimentation"
-                        jobs={jobs.filter((job) => job.category === "alimentation")}
-                    />
-                    <JobList
-                        colorBackground={backColor.hotellerie}
-                        linearGradient={colors.hotellerie}
-                        title="Hôtellerie Restauration"
-                        jobs={jobs.filter((job) => job.category === "restauration")}
-                    />
-                    <JobList
-                        colorBackground={backColor.batiment}
-                        linearGradient={colors.batiment}
-                        title="Bâtiment"
-                        jobs={jobs.filter((job) => job.category === "batiment")}
-                    />
-                    <JobList
-                        colorBackground={backColor.commerce}
-                        linearGradient={colors.commerce}
-                        title="Commerces & Services"
-                        jobs={jobs.filter((job) => job.category === "services")}
-                    />
-                    <JobList
-                        colorBackground={backColor.metaux}
-                        linearGradient={colors.metaux}
-                        title="Métaux"
-                        jobs={jobs.filter((job) => job.category === "metaux")}
-                    />
-                    <JobList
-                        colorBackground={backColor.mecanique}
-                        linearGradient={colors.mecanique}
-                        title="Mécanique"
-                        jobs={jobs.filter((job) => job.category === "mecanique")}
-                    />
-                </Grid>
+                <AnimatePresence>
+                    <Grid>
+                        <LayoutGroup>
+                            <JobList
+                                layout
+                                colorBackground={backColor.alimentation}
+                                linearGradient={colors.alimentation}
+                                title="Alimentation"
+                                jobs={jobs.filter((job) => job.category === "alimentation")}
+                            />
+                            <JobList
+                                layout
+                                colorBackground={backColor.hotellerie}
+                                linearGradient={colors.hotellerie}
+                                title="Hôtellerie Restauration"
+                                jobs={jobs.filter((job) => job.category === "restauration")}
+                            />
+                            <JobList
+                                layyout
+                                colorBackground={backColor.batiment}
+                                linearGradient={colors.batiment}
+                                title="Bâtiment"
+                                jobs={jobs.filter((job) => job.category === "batiment")}
+                            />
+                            <JobList
+                                layout
+                                colorBackground={backColor.commerce}
+                                linearGradient={colors.commerce}
+                                title="Commerces & Services"
+                                jobs={jobs.filter((job) => job.category === "services")}
+                            />
+                            <JobList
+                                layout
+                                colorBackground={backColor.metaux}
+                                linearGradient={colors.metaux}
+                                title="Métaux"
+                                jobs={jobs.filter((job) => job.category === "metaux")}
+                            />
+                            <JobList
+                                layout
+                                colorBackground={backColor.mecanique}
+                                linearGradient={colors.mecanique}
+                                title="Mécanique"
+                                jobs={jobs.filter((job) => job.category === "mecanique")}
+                            />
+                        </LayoutGroup>
+                    </Grid>
+                </AnimatePresence>
             </StyledWrapper>
         </div>
     );
