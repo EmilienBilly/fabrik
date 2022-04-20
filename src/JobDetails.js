@@ -33,7 +33,7 @@ const handleColor = (categorie) => {
 };
 
 const StyledWrapper = styled.div`
-    max-height: 100vh;
+    max-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,7 +41,6 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledJobDetails = styled.div`
-    height: 50vh;
     width: 90%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -58,6 +57,7 @@ const StyledDescription = styled.div`
     justify-content: center;
     align-items: center;
     color: #fff;
+    padding-left: 30px;
 
     p {
         line-height: 1.6;
@@ -103,8 +103,8 @@ const StyledDiplomes = styled.div`
         justify-content: space-between;
 
         img {
-            height: 52px;
-            padding-left: 15px;
+            height: 2.5rem;
+            padding-left: 1rem;
         }
     }
 
