@@ -5,8 +5,8 @@ import { useState, useEffect, useRef } from "react";
 
 // Styled Components
 const StyledJobList = styled(motion.div)`
-    width: 100%;
-    min-height: 15vh;
+    width: 90%;
+    min-height: 5rem;
     display: flex;
     color: white;
     flex-direction: column;
@@ -15,8 +15,21 @@ const StyledJobList = styled(motion.div)`
     background: ${(props) => props.$colorBackground};
 
     h1 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         font-weight: 600;
+    }
+
+    @media (min-width: 767px) {
+        padding: 0 8px;
+        h1 {
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (min-width: 960px) {
+        h1 {
+            font-size: 1rem;
+        }
     }
 `;
 
@@ -26,11 +39,24 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledJobTitleWrapper = styled(motion.div)``;
+
 const StyledJobTitle = styled(motion.h3)`
     span {
-        font-size: 0.9rem;
+        font-size: 1rem;
         border-bottom: 2px solid white;
         background-size: 100% 3px;
+    }
+
+    @media (min-width: 767px) {
+        span {
+            font-size: 0.7rem;
+        }
+    }
+
+    @media (min-width: 960px) {
+        span {
+            font-size: 0.8rem;
+        }
     }
 `;
 

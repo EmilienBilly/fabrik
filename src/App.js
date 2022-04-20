@@ -6,6 +6,9 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 
     body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding: 0;
         margin: 0;
         max-height: 100vh;
