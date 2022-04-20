@@ -72,7 +72,7 @@ const Grid = styled.div`
     grid-gap: 15px;
     justify-items: center;
     align-items: start;
-    padding-top: 2.5rem;
+    padding-top: 3.5rem;
     text-align: center;
 `;
 
@@ -118,7 +118,7 @@ const Home = () => {
                     <JobList
                         colorBackground={backColor.commerce}
                         linearGradient={colors.commerce}
-                        title="Commerces Services"
+                        title="Commerces & Services"
                         jobs={jobs.filter((job) => job.category === "services")}
                     />
                     <JobList
