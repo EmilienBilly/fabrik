@@ -6,6 +6,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 
     body {
+        width: 100vw;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -14,6 +15,10 @@ const GlobalStyles = createGlobalStyle`
         max-height: 100vh;
         font-family: 'Poppins', sans-serif;
         background: #242424;
+
+        #root {
+            width: 100%;
+        }
     }
 `;
 

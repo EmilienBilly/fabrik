@@ -26,6 +26,10 @@ const StyledNav = styled(motion.nav)`
         background-image: url("/images/logo-cma.png");
         object-fit: contain;
     }
+
+    @media (min-width: 1980px) {
+        width: 50%;
+    }
 `;
 
 const StyledLink = styled(Link)`

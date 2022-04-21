@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 
 // Styled Components
 const StyledJobList = styled(motion.div)`
-    width: 90%;
+    width: 70%;
     min-height: 5rem;
     display: flex;
     color: white;
@@ -15,11 +15,12 @@ const StyledJobList = styled(motion.div)`
     background: ${(props) => props.$colorBackground};
 
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: 600;
     }
 
-    @media (min-width: 767px) {
+    @media (min-width: 768px) {
+        width: 90%;
         padding: 0 8px;
         h1 {
             font-size: 0.8rem;
@@ -47,7 +48,7 @@ const StyledJobTitle = styled(motion.h3)`
         background-size: 100% 3px;
     }
 
-    @media (min-width: 767px) {
+    @media (min-width: 768px) {
         span {
             font-size: 0.7rem;
         }

@@ -33,15 +33,38 @@ const handleColor = (categorie) => {
 };
 
 const StyledWrapper = styled.div`
-    max-height: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 2rem auto;
+
+    @media (min-width: 1200px) {
+        width: 75%;
+    }
+
+    @media (min-width: 1980px) {
+        width: 50%;
+    }
+`;
+
+const StyleJobTitle = styled.h1`
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 2.5rem;
+    text-align: center;
+    color: ${({ categorie }) => handleColor(categorie)};
+    margin: 30px 0 0 0;
+
+    @media (min-width: 767px) {
+        text-align: left;
+    }
 `;
 
 const StyledJobDetails = styled.div`
-    width: 90%;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     justify-items: center;
@@ -49,8 +72,9 @@ const StyledJobDetails = styled.div`
     border-top: 3px solid;
     border-bottom: 3px solid;
     border-color: ${({ categorie }) => handleColor(categorie)};
+    padding: 1rem 0;
 
-    @media (min-width: 767px) {
+    @media (min-width: 768px) {
         grid-template-columns: repeat(2, 1fr);
     }
 `;
@@ -61,17 +85,26 @@ const StyledDescription = styled.div`
     justify-content: center;
     align-items: center;
     color: #fff;
-    text-align: center;
-
     p {
         line-height: 1.8;
         font-size: 0.8rem;
-        padding: 15px 0px 15px 0px;
     }
 
     @media (min-width: 767px) {
         font-size: 0.9rem;
         text-align: left;
+    }
+
+    @media (min-width: 1200px) {
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    @media (min-width: 1980px) {
+        p {
+            font-size: 1.1rem;
+        }
     }
 `;
 
@@ -83,10 +116,9 @@ const StyledImg = styled.div`
         height: 300px;
         width: 280px;
         object-fit: cover;
-        margin: 15px 0;
     }
 
-    @media (min-width: 767px) {
+    @media (min-width: 768px) {
         justify-self: end;
 
         img {
@@ -94,19 +126,12 @@ const StyledImg = styled.div`
             width: 330px;
         }
     }
-`;
 
-const StyleJobTitle = styled.h1`
-    width: 90%;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 2.5rem;
-    text-align: center;
-    color: ${({ categorie }) => handleColor(categorie)};
-    margin: 30px 0 0 0;
-
-    @media (min-width: 767px) {
-        text-align: left;
+    @media (min-width: 1980px) {
+        img {
+            height: 500px;
+            width: 450px;
+        }
     }
 `;
 
@@ -193,7 +218,7 @@ const JobDetails = () => {
     }
 
     return (
-        <div>
+        <>
             <Navbar />
             {/* Conditional templating to avoid TypeError */}
             {job && (
@@ -224,7 +249,7 @@ const JobDetails = () => {
                     </StyledDiplomes>
                 </StyledWrapper>
             )}
-        </div>
+        </>
     );
 };
 
