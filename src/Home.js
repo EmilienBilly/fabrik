@@ -39,6 +39,7 @@ const StyledCategories = styled.div`
         font-weight: 900;
         color: black;
         text-align: center;
+        text-transform: uppercase;
         background: rgb(132, 94, 194);
         background: linear-gradient(
             61deg,
@@ -131,6 +132,9 @@ const Home = () => {
                         </LayoutGroup>
                     </Grid>
                 </AnimatePresence>
+                <StyledCategories>
+                    <h1>Kahoot</h1>
+                </StyledCategories>
             </StyledWrapper>
         </>
     );
