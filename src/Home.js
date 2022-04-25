@@ -132,9 +132,6 @@ const Home = () => {
                         </LayoutGroup>
                     </Grid>
                 </AnimatePresence>
-                <StyledCategories>
-                    <h1>Kahoot</h1>
-                </StyledCategories>
             </StyledWrapper>
         </>
     );

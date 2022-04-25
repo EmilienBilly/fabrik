@@ -177,13 +177,14 @@ const StyledButtons = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0.5rem;
 
     button {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 50px;
-        width: 150px;
+        height: 70px;
+        width: 160px;
         background-color: ${({ categorie }) => handleColor(categorie)};
         border: none;
         border-radius: 5px;
