@@ -79,6 +79,10 @@ const StyledJobDetails = styled.div`
     }
 `;
 
+const StyleddVideo = styled.div`
+    padding: 1rem;
+`;
+
 const StyledDescription = styled.div`
     display: flex;
     flex-direction: column;
@@ -248,6 +252,16 @@ const JobDetails = () => {
                             ))}
                         </StyledButtons>
                     </StyledDiplomes>
+                    <StyleddVideo>
+                        <iframe
+                            width="694"
+                            height="359"
+                            src={job.video}
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </StyleddVideo>
                 </StyledWrapper>
             )}
         </>
