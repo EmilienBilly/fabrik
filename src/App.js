@@ -1,5 +1,6 @@
 import JobDetails from "./JobDetails";
 import Home from "./Home";
+import Contact from "./Contact";
 import { Route, Routes } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 
@@ -29,6 +30,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/:titre" element={<JobDetails />} />
+                <Route path="/contact" element={<Contact />} />
             </Routes>
         </>
     );

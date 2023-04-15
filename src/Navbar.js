@@ -46,7 +46,7 @@ const Navbar = () => {
         <StyledNav>
             <img src="/images/logo-cma.png" alt="" />
             <div>
-                <StyledLink to="/">Contact</StyledLink>
+                <StyledLink to="/contact">Contact</StyledLink>
                 <StyledLink to="/">Accueil</StyledLink>
                 <img src="/images/logo-home.svg" alt="" />
             </div>
