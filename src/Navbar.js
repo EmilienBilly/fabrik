@@ -48,7 +48,7 @@ const Navbar = () => {
             <div>
                 <StyledLink to="/contact">Contact</StyledLink>
                 <StyledLink to="/">Accueil</StyledLink>
-                <img src="/images/logo-home.svg" alt="" />
+                {/* <img src="/images/logo-home.svg" alt="" /> */}
             </div>
         </StyledNav>
     );

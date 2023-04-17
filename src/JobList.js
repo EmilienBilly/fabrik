@@ -5,8 +5,8 @@ import { useState, useEffect, useRef } from "react";
 
 // Styled Components
 const StyledJobList = styled(motion.div)`
-    width: 70%;
-    min-height: 5rem;
+    width: 90%;
+    min-height: 4rem;
     display: flex;
     color: white;
     flex-direction: column;
@@ -14,22 +14,35 @@ const StyledJobList = styled(motion.div)`
     align-items: center;
     background: ${(props) => props.$colorBackground};
 
-    h1 {
+    h2 {
         font-size: 1.2rem;
         font-weight: 600;
     }
 
-    @media (min-width: 768px) {
-        width: 90%;
-        padding: 0 8px;
-        h1 {
-            font-size: 0.8rem;
+    @media (min-width: 760px) {
+        min-height: 5rem;
+        width: 80%;
+
+        h2 {
+            font-size: 1.3rem;
         }
     }
 
     @media (min-width: 960px) {
-        h1 {
-            font-size: 1rem;
+        min-height: 5rem;
+        width: 100%;
+
+        h2 {
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        min-height: 4rem;
+        width: 100%;
+
+        h2 {
+            font-size: 0.8rem;
         }
     }
 `;
@@ -43,20 +56,25 @@ const StyledJobTitleWrapper = styled(motion.div)``;
 
 const StyledJobTitle = styled(motion.h3)`
     span {
-        font-size: 1rem;
-        border-bottom: 2px solid white;
+        font-size: 0.8rem;
         background-size: 100% 3px;
+        transition: font-size 0.2s;
     }
 
-    @media (min-width: 768px) {
+    span:hover {
+        border-bottom: 2px solid white;
+        font-size: 1.1rem;
+    }
+
+    @media (min-width: 760px) {
         span {
-            font-size: 0.7rem;
+            font-size: 0.9rem;
         }
     }
 
     @media (min-width: 960px) {
         span {
-            font-size: 0.8rem;
+            font-size: 1rem;
         }
     }
 `;
@@ -116,14 +134,23 @@ const JobList = (props) => {
                 onClick={() => setIsOpen(!isOpen)}
                 ref={ref}
                 $colorBackground={colorBackground}>
-                <motion.h1 layout>{title}</motion.h1>
+                <motion.h2 layout>{title}</motion.h2>
                 <AnimatePresence>
                     {isOpen && (
-                        <StyledJobTitleWrapper layout animate={isOpen ? "visible" : "hidden"} variants={JobContainer} initial="hidden" exit="exit">
+                        <StyledJobTitleWrapper
+                            layout
+                            animate={isOpen ? "visible" : "hidden"}
+                            variants={JobContainer}
+                            initial="hidden"
+                            exit="exit">
                             {jobs.map((job) => (
-                                <motion.div layout variants={JobItems} key={job.id}>
+                                <motion.div
+                                    layout
+                                    variants={JobItems}
+                                    key={job.id}>
                                     <StyledLink to={`/${job.title}`}>
-                                        <StyledJobTitle $linearGradient={linearGradient}>
+                                        <StyledJobTitle
+                                            $linearGradient={linearGradient}>
                                             <span>{job.title}</span>
                                         </StyledJobTitle>
                                     </StyledLink>

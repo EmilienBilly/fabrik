@@ -15,7 +15,7 @@ const StyledWrapper = styled.div`
 
     h1 {
         margin: 15px 0 0 0;
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 900;
         color: black;
         text-align: center;
@@ -32,10 +32,6 @@ const StyledWrapper = styled.div`
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-
-        @media (max-width: 760px) {
-            font-size: 1.8rem;
-        }
     }
 `;
 
