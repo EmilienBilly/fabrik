@@ -1,5 +1,5 @@
 # Fabrik
-https://master--kaleidoscopic-quokka-9d0cf5.netlify.app/
+https://fabrik-metiers.netlify.app/contact
 
 Project made during my internship at CMA Nouvelle-Aquitaine, France. 
 
