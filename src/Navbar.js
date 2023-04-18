@@ -22,9 +22,15 @@ const StyledNav = styled(motion.nav)`
     }
 
     img {
-        height: 100%;
+        height: 80%;
         background-image: url("/images/logo-cma.png");
         object-fit: contain;
+    }
+
+    @media (min-width: 760px) {
+        img {
+            height: 100%;
+        }
     }
 
     @media (min-width: 1980px) {

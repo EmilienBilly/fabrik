@@ -22,8 +22,8 @@ const StyledWrapper = styled.div`
     align-items: center;
     margin: 3rem auto;
 
-    @media (min-width: 1980px) {
-        width: 50%;
+    @media (min-width: 1920px) {
+        max-width: 80%;
     }
     @media (min-width: 960px) {
         width: 100%;

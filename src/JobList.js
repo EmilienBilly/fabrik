@@ -4,8 +4,9 @@ import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
 // Styled Components
+
 const StyledJobList = styled(motion.div)`
-    width: 90%;
+    width: 100%;
     min-height: 4rem;
     display: flex;
     color: white;
@@ -15,34 +16,26 @@ const StyledJobList = styled(motion.div)`
     background: ${(props) => props.$colorBackground};
 
     h2 {
+        max-width: 80%;
         font-size: 1.2rem;
         font-weight: 600;
     }
 
     @media (min-width: 760px) {
         min-height: 5rem;
-        width: 80%;
+        width: 70%;
 
         h2 {
             font-size: 1.3rem;
         }
     }
 
-    @media (min-width: 960px) {
+    @media (min-width: 1024px) {
         min-height: 5rem;
         width: 100%;
 
         h2 {
-            font-size: 0.8rem;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        min-height: 4rem;
-        width: 100%;
-
-        h2 {
-            font-size: 0.8rem;
+            font-size: 1rem;
         }
     }
 `;
@@ -55,26 +48,26 @@ const StyledLink = styled(Link)`
 const StyledJobTitleWrapper = styled(motion.div)``;
 
 const StyledJobTitle = styled(motion.h3)`
+    margin: 1.25rem;
     span {
-        font-size: 0.8rem;
-        background-size: 100% 3px;
-        transition: font-size 0.2s;
+        font-size: 1rem;
+        transition: font-size 0.15s;
     }
 
     span:hover {
         border-bottom: 2px solid white;
-        font-size: 1.1rem;
+        font-size: 1.025rem;
     }
 
     @media (min-width: 760px) {
         span {
-            font-size: 0.9rem;
+            font-size: 1.2rem;
         }
     }
 
-    @media (min-width: 960px) {
+    @media (min-width: 1024px) {
         span {
-            font-size: 1rem;
+            font-size: 0.85rem;
         }
     }
 `;
@@ -87,12 +80,12 @@ const JobContainer = {
             duration: 0.4,
             // The first child will appear AFTER the parrent has appeared on the screen
             delayChildren: 0.2,
-            // The next sibling will appear 0.5s after the previous one
-            staggerChildren: 0.3,
+            // The next sibling will appear 0.1s after the previous one
+            staggerChildren: 0.1,
         },
     },
     hidden: { opacity: 0, x: -50 },
-    exit: { opacity: 0 },
+    exit: { opacity: 0, transition: { duration: 0.1 } },
 };
 
 const JobItems = {
@@ -128,7 +121,7 @@ const JobList = (props) => {
     return (
         <LayoutGroup>
             <StyledJobList
-                transition={{ layout: { duration: 1 } }}
+                transition={{ layout: { duration: 0.4 } }}
                 style={{ borderRadius: "30px" }}
                 layout
                 onClick={() => setIsOpen(!isOpen)}
